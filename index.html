@@ -137,7 +137,7 @@ success, and countless beautiful memories.
 
 <div class="music-box">
     <audio id="player">
-        <scource src="music.mp3"
+        <source src="music.mp3"
 type="audio/mpeg">
     </audio>
 </div>
@@ -148,14 +148,12 @@ type="audio/mpeg">
 
 function openCard(){
     document.getElementById("envelope").style.display="none";
-    document.getElementById("card").style.display="block";}
+    document.getElementById("card").style.display="block";
 
-function changeMusic(song){
-    const player=document.getElementById("player");
-    player.src=song;
-    player.load();
+    const player =
+document.getElmentById("player");
     player.play();
-}
+    }
 
 </script></body>
 </html>
