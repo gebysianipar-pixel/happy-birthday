@@ -136,7 +136,7 @@ success, and countless beautiful memories.
 </video>
 
 <div class="music-box">
-    <audio id="player">
+    <audio id="player" loop>
         <source src="music.mp3"
 type="audio/mpeg">
     </audio>
@@ -152,7 +152,8 @@ function openCard(){
 
     const player =
 document.getElmentById("player");
-    player.play();
+    player.play().catch(err =>
+console.log(err));
     }
 
 </script></body>
