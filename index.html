@@ -76,8 +76,18 @@ audio{
     color:#ff4f81;
 }
 </style></head>
-<body><div class="container"><div class="envelope" id="envelope" onclick="openCard()">
-    <h2>💌 A Special Birthday Letter 💌</h2><p>
+<body>
+    <div id="intro">< class="intro">
+    <h2> Every brithday deserves something unforgettable.</h2>
+        <p>So...</p>
+        <p>Here's my little suprise for you.</p>
+        <button onclick="showEnvelope()"> Open My Gift</button>button>
+    </div>
+
+    <div class="container" id="container"
+        style="display:none;">
+
+    <div class="envelope" id="envelope" onclick="openCard()">
     To:<br>
     <b>Septian Simangunsong ❤️</b>
 </p>
@@ -146,6 +156,11 @@ type="audio/mpeg">
 
 </div></div><script>
 
+function showEnvelope(){
+    document.getElementById("intro").style.display ="none";
+    document.getElementById("container").style.display ="block";
+}
+    
 function openCard() {
     document.getElementById("envelope").style.display="none";
     document.getElementById("card").style.display="block";
