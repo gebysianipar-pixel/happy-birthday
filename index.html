@@ -87,8 +87,26 @@ audio{
     align-items:center;
     text-align:center;
     padding:30px;
+
+    position:relative;
+    overflow:hidden;
 }
 
+.stars{
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+        radial-gradient(2px 2px at 120px 80px,#fff,transparent),
+        radial-gradient(2px 2px at 250px 150px,#fff,transparent),
+        radial-gradient(2px 2px at 400px 60px,#fff,transparent),
+        radial-gradient(2px 2px at 550px 200px,#fff,transparent),
+        radial-gradient(2px 2px at 700px 100px,#fff,transparent);
+    background-size:800px 300px;
+    animation:starsMove 15s linear infinite;
+    opacity:.8;
+}
+    
 .intro h2{
     color:white;
     margin-bottom:20px;
@@ -108,6 +126,12 @@ audio{
     color:white;
     font-size:16px;
     cursor:pointer;
+    .intro h2,
+    .intro p,
+    .intro button{
+        position:relative;
+        z-index:2;
+                        }
 }
     
 #loading{
@@ -189,6 +213,16 @@ audio{
         transform:translateY(0);
     }
 }
+
+    @keyframes starsMove{
+    from{
+        background-position:0 0;
+    }
+
+    to{
+        background-position:-800px 0;
+    }
+}
     
 </style></head>
 <body>
@@ -198,6 +232,7 @@ audio{
     </div>
     
     <div id="intro" class="intro">
+        <div class="stars"></div>
     <h2> Every brithday deserves something unforgettable.</h2>
         <p>So...</p>
         <p>Here's my little suprise for you.</p>
