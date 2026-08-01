@@ -104,6 +104,8 @@ audio{
     background-size:800px 300px;
     animation:starsMove 15s linear infinite;
     opacity:.8;
+    z-index:0;
+    pointer-events:none;
 }
     
 .intro h2{
@@ -133,7 +135,7 @@ audio{
     .intro p,
     .intro button{
         position:relative;
-        z-index:2;
+        z-index:10;
 }
 
     .fadeShow{
@@ -253,7 +255,7 @@ audio{
     <h2 id="line1"> Every brithday deserves something unforgettable.</h2>
         <p id="line2">So...</p>
         <p id="line3">Here's my little suprise for you.</p>
-        <button id="giftBtn" onclick="showEnvelope()">Open My Gift</button>
+        <button id="giftBtn" type="button">Open My Gift</button>
     </div>
 
     <div class="container" id="container"
@@ -377,5 +379,12 @@ document.getElementById("giftBtn").classList.add("fadeShow");
         },1000);
     },2500);
 }
+
+document.getElementById("giftBtn").onclick = function(){
+document.getElementById("intro").style.display="none";
+document.getElementById("container").style.display="block";
+
+}
+    
 </script></body>
 </html>
