@@ -76,6 +76,40 @@ audio{
     margin-top:10px;
 }
 
+.intro{
+    position:fixed;
+    inset:0;
+    background:#111;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.intro h2{
+    color:white;
+    margin-bottom:20px;
+}
+
+.intro p{
+    color:#ddd;
+    margin:8px 0;
+}
+
+.intro button{
+    margin-top:25px;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff4f81;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+    
 #loading{
     position:fixed;
     top:0;
@@ -89,7 +123,7 @@ audio{
     justify-content:center;
     align-items:center;
     z-index:9999;
-    transition:opacity 1s;
+    transition:opacity 1s:
 }
 
 #loading h1{
@@ -138,7 +172,7 @@ audio{
     <h2> Every brithday deserves something unforgettable.</h2>
         <p>So...</p>
         <p>Here's my little suprise for you.</p>
-        <button onclick="showEnvelope()"> Open My Gift</button>button>
+        <button onclick="showEnvelope()"> Open My Gift</button>
     </div>
 
     <div class="container" id="container"
