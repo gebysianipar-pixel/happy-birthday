@@ -110,11 +110,13 @@ audio{
 .intro h2{
     color:white;
     margin-bottom:20px;
+    opacity:0;
 }
 
 .intro p{
     color:#ddd;
     margin:8px 0;
+    opacity:0;
 }
 
 .intro button{
@@ -126,12 +128,28 @@ audio{
     color:white;
     font-size:16px;
     cursor:pointer;
+    opacity:0;
 }
     .intro h2,
     .intro p,
     .intro button{
         position:relative;
         z-index:2;
+}
+
+    .fadeShow{
+    animation:fadeShow .8s forwards;
+}
+
+@keyframes fadeShow{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
     
 #loading{
@@ -233,10 +251,10 @@ audio{
     
     <div id="intro" class="intro">
         <div class="stars"></div>
-    <h2> Every brithday deserves something unforgettable.</h2>
-        <p>So...</p>
-        <p>Here's my little suprise for you.</p>
-        <button onclick="showEnvelope()"> Open My Gift</button>
+    <h2 id="line1"> Every brithday deserves something unforgettable.</h2>
+        <p id="line2">So...</p>
+        <p id="line3">Here's my little suprise for you.</p>
+        <button id="giftBtn" onclick"showEnvelope()"> Open My Gift</button>
     </div>
 
     <div class="container" id="container"
@@ -344,6 +362,19 @@ window.onload = function(){
 document.getElementById("loading").style.opacity="0";
         setTimeout(function(){
 document.getElementById("loading").style.display="none";
+        setTimeout(() => {
+document.getElementById("line1").classList.add("fadeShow");
+            },300);
+            setTimeout(() => {
+document.getElementById("line2").classList.add("fadeShow");
+            },1200);
+            setTimeout(() => {
+document.getElementById("line3").classList.add("fadeShow");
+            },2100);
+            setTimeout(() => {
+document.getElementById("giftBtn").classList.add("fadeShow");
+            },3000);
+                
         },1000);
     },2500);
 }
