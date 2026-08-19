@@ -494,6 +494,9 @@ document.getElementById("giftBtn").classList.add("fadeShow");
 }
 
 document.getElementById("giftBtn").onclick = function(){
+    const player = document.getElementById("player");
+    player.muted = false;
+    player.play().catch(err => console.log(err));
 document.getElementById("intro").style.display="none";
 document.getElementById("container").style.display="block";
 
