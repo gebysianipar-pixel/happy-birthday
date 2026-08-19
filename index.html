@@ -264,6 +264,71 @@ audio{
         background-position:-800px 0;
     }
 }
+    .video-page{
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100vh;
+    background:#120b10;
+    color:white;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+    z-index:1000;
+}
+
+.video-page video{
+    width:100%;
+    max-width:700px;
+    max-height:70vh;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+.next-button{
+    margin-top:25px;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff4f81;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.ending-page{
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100vh;
+
+    background:#120b10;
+    color:white;
+
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:30px;
+
+    z-index:1001;
+}
+
+.ending-page h1{
+    color:#ff4f81;
+    font-size:35px;
+}
+
+.ending-page p{
+    max-width:500px;
+    line-height:1.8;
+    color:#ddd;
+}
     
 </style></head>
 <body>
@@ -349,9 +414,7 @@ type="audio/mpeg">
 <p><i>Made with love, just for Septian. ❤️</i></p>
     </div>
     </div>
-
-    </div></div>
-
+    
 <div class="video-page" id="videoPage">
 
     <h1>🎥 Special Video 🤍</h1>
@@ -361,7 +424,19 @@ type="audio/mpeg">
     <video controls playsinline>
         <source src="video.mp4" type="video/mp4">
     </video>
+<div class="ending-page" id="endingPage">
 
+    <h1>🤍 Happy Birthday,Sayangku 🤍</h1>
+
+    <p>
+        Semoga semua hal baik selalu datang ke hidupmu.
+        <br><br>
+        Terima kasih sudah menjadi seseorang
+        yang begitu berarti bagiku.
+        <br><br>
+        With Love,<br>
+        Geby Sianipar 🤍
+    </p>
 </div>
 <script>
 
@@ -393,17 +468,7 @@ document.getElementById("player");
     player.play().catch(err =>
 console.log(err));
     }
-    const player = document.getElementById("player");
-const video = document.querySelector("video");
-
-video.addEventListener("play", function () {
-    player.pause();
-});
-
-video.addEventListener("ended", function () {
-    player.play().catch(err => console.log(err));
-});
-    
+      
 window.onload = function(){
     setTimeout(function(){
 
@@ -436,10 +501,18 @@ document.getElementById("container").style.display="block";
 function openVideoPage(){
 
     document.getElementById("container").style.display = "none";
-
     document.getElementById("videoPage").style.display = "block";
 
 }
+   const birthdayVideo = document.querySelector("#videoPage video");
+
+birthdayVideo.addEventListener("ended", function(){
+
+    document.getElementById("videoPage").style.display = "none";
+
+    document.getElementById("endingPage").style.display = "flex";
+
+}); 
     
 </script></body>
 </html>
