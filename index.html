@@ -316,9 +316,34 @@ audio{
     text-align:center;
     padding:30px;
 
+    opacity:0;
+    transition:opacity1.5s ease;
+
     z-index:1001;
 }
+.ending-page::before{
+    content:"❤️  🤍  💕  💞  💖";
+    position:absolute;
+    top:-50px;
+    left:0;
+    width:100%;
+    font-size:24px;
+    letter-spacing:45px;
+    white-space:nowrap;
+    animation:fallingHearts 8s linear infinite;
+    opacity:.7;
+    pointer-events:none;
+}
 
+@keyframes fallingHearts{
+    from{
+        transform:translateY(-50px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+    
 .ending-page h1{
     color:#ff4f81;
     font-size:35px;
@@ -517,11 +542,27 @@ function openVideoPage(){
 
 birthdayVideo.addEventListener("ended", function(){
 
-    document.getElementById("videoPage").style.display = "none";
+    const videoPage = document.getElementById("videoPage");
+    const endingPage = document.getElementById("endingPage");
 
-    document.getElementById("endingPage").style.display = "flex";
+    videoPage.style.transition = "opacity 1s ease";
+    videoPage.style.opacity = "0";
 
-}); 
+    setTimeout(function(){
+
+        videoPage.style.display = "none";
+
+        endingPage.style.display = "flex";
+
+        setTimeout(function(){
+            endingPage.style.opacity = "1";
+        },50);
+
+    },1000);
+
+});
+
+
     
 </script></body>
 </html>
