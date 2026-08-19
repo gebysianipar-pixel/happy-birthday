@@ -334,11 +334,10 @@ success, and countless beautiful memories.
     With Love,<br>
     Geby Sianipar ❤️
 </div>
-
-<h3>🎥 Special Video</h3>
-<video controls>
-    <source src="video.mp4" type="video/mp4">
-</video>
+        
+<button onclick="openVideoPage()" class="next-button">
+    Ada satu hal lagi... 🎥
+</button>
 
 <div class="music-box">
     <audio id="player" loop>
@@ -348,8 +347,23 @@ type="audio/mpeg">
 </div>
 
 <p><i>Made with love, just for Septian. ❤️</i></p>
+    </div>
+    </div>
 
-</div></div><script>
+    </div></div>
+
+<div class="video-page" id="videoPage">
+
+    <h1>🎥 Special Video 🤍</h1>
+
+    <p>Ada sesuatu yang mau aku tunjukkan buat dirimu...</p>
+
+    <video controls playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+</div>
+<script>
 
 function showEnvelope(){
 
@@ -416,6 +430,14 @@ document.getElementById("giftBtn").classList.add("fadeShow");
 document.getElementById("giftBtn").onclick = function(){
 document.getElementById("intro").style.display="none";
 document.getElementById("container").style.display="block";
+
+}
+
+function openVideoPage(){
+
+    document.getElementById("container").style.display = "none";
+
+    document.getElementById("videoPage").style.display = "block";
 
 }
     
