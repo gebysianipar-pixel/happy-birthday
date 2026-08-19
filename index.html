@@ -505,6 +505,7 @@ function openVideoPage(){
     document.getElementById("videoPage").style.display = "block";
     const player = document.getElementById("player");
     player.pause();
+    player.muted = true;
     player.currentTime = 0;
     player.src =" ";
 
