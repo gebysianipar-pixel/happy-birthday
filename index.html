@@ -502,6 +502,9 @@ function openVideoPage(){
 
     document.getElementById("container").style.display = "none";
     document.getElementById("videoPage").style.display = "block";
+    const player = document.getElementById("player");
+    player.pause();
+    player.currentTime = 0;
 
 }
    const birthdayVideo = document.querySelector("#videoPage video");
