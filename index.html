@@ -321,28 +321,6 @@ audio{
 
     z-index:1001;
 }
-.ending-page::before{
-    content:"❤️  🤍  💕  💞  💖";
-    position:absolute;
-    top:-50px;
-    left:0;
-    width:100%;
-    font-size:24px;
-    letter-spacing:45px;
-    white-space:nowrap;
-    animation:fallingHearts 8s linear infinite;
-    opacity:.7;
-    pointer-events:none;
-}
-
-@keyframes fallingHearts{
-    from{
-        transform:translateY(-50px);
-    }
-    to{
-        transform:translateY(110vh);
-    }
-}
     
 .ending-page h1{
     color:#ff4f81;
@@ -355,6 +333,27 @@ audio{
     color:#ddd;
 }
     
+    .heart{
+    position:absolute;
+    top:-50px;
+    font-size:25px;
+    animation:fallHeart 5s linear infinite;
+    pointer-events:none;
+}
+@keyframes fallHeart{
+    0%{
+        transform:translate(-50px, -50px) rotate(0deg);
+    }
+
+    50%{
+        transform:translate(var(--move), 50vh) rotate(180deg);
+    }
+
+    100%{
+        transform:translate(calc(var(--move) * -1), 110vh) rotate(360deg);
+    }
+}
+
 </style></head>
 <body>
     <div id="loading">
@@ -447,6 +446,7 @@ type="audio/mpeg">
     </video>
     </div>
 <div class="ending-page" id="endingPage">
+    <div id="hearts"></div>
 
     <h1>🤍 Happy Birthday,Sayangku 🤍</h1>
 
@@ -557,8 +557,26 @@ birthdayVideo.addEventListener("ended", function(){
     },1000);
 
 });
+function createHeart(){
 
+    const heart = document.createElement("span");
 
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+    heart.style.setProperty(
+    "--move",
+    (Math.random() * 200 - 100) + "px"
+);
+
+    document.getElementById("endingPage").appendChild(heart);
+}
+setInterval(function(){
+    createHeart();
+}, 150);
     
 </script></body>
 </html>
